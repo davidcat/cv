@@ -26,60 +26,44 @@ jobs:
 
     - name: Build HTML Resume
       run: |
-        cat > index.html << 'EOF'
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张三 - iOS 开发工程师简历</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>张三</h1>
-            <div class="contact-info">
-                <p>📱 138-8888-8888 | ✉️ zhangsan@email.com | 📍 北京市</p>
-                <p>
-                    <a href="https://linkedin.com/in/zhangsan">LinkedIn</a> |
-                    <a href="https://github.com/zhangsan">GitHub</a> |
-                    <a href="https://apps.apple.com/developer/zhangsan">App Store</a>
-                </p>
-            </div>
-        </header>
-
-        <section class="summary">
-            <h2>🎯 个人简介</h2>
-            <p>资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C，主导开发过多款下载量超百万的应用。</p>
-        </section>
-
-        <section class="experience">
-            <h2>💼 工作经历</h2>
-            <div class="job">
-                <h3>高级 iOS 工程师 | 移动互联网科技公司</h3>
-                <p class="date">2021年3月 - 至今 | 北京</p>
-                <ul>
-                    <li>主导公司核心产品 iOS 应用开发，使用 Swift 和 SwiftUI 构建现代化用户界面</li>
-                    <li>优化应用性能，启动时间减少 70%，内存使用降低 40%</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="skills">
-            <h2>🛠️ 技术栈</h2>
-            <div class="skill-tags">
-                <span class="tag">Swift</span>
-                <span class="tag">SwiftUI</span>
-                <span class="tag">UIKit</span>
-                <span class="tag">Combine</span>
-                <span class="tag">Core Data</span>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
-EOF
+        echo '<!DOCTYPE html>' > index.html
+        echo '<html lang="zh-CN">' >> index.html
+        echo '<head>' >> index.html
+        echo '<meta charset="UTF-8">' >> index.html
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">' >> index.html
+        echo '<title>张三 - iOS 开发工程师简历</title>' >> index.html
+        echo '<link rel="stylesheet" href="style.css">' >> index.html
+        echo '</head>' >> index.html
+        echo '<body>' >> index.html
+        echo '<div class="container">' >> index.html
+        echo '<header>' >> index.html
+        echo '<h1>张三</h1>' >> index.html
+        echo '<div class="contact-info">' >> index.html
+        echo '<p>📱 138-8888-8888 | ✉️ zhangsan@email.com | 📍 北京市</p>' >> index.html
+        echo '<p><a href="https://linkedin.com/in/zhangsan">LinkedIn</a> | <a href="https://github.com/zhangsan">GitHub</a></p>' >> index.html
+        echo '</div>' >> index.html
+        echo '</header>' >> index.html
+        echo '<section class="summary">' >> index.html
+        echo '<h2>🎯 个人简介</h2>' >> index.html
+        echo '<p>资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C。</p>' >> index.html
+        echo '</section>' >> index.html
+        echo '<section class="experience">' >> index.html
+        echo '<h2>💼 工作经历</h2>' >> index.html
+        echo '<div class="job">' >> index.html
+        echo '<h3>高级 iOS 工程师 | 移动互联网科技公司</h3>' >> index.html
+        echo '<p class="date">2021年3月 - 至今 | 北京</p>' >> index.html
+        echo '<ul><li>主导公司核心产品 iOS 应用开发</li><li>优化应用性能，启动时间减少 70%</li></ul>' >> index.html
+        echo '</div>' >> index.html
+        echo '</section>' >> index.html
+        echo '<section class="skills">' >> index.html
+        echo '<h2>🛠️ 技术栈</h2>' >> index.html
+        echo '<div class="skill-tags">' >> index.html
+        echo '<span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span>' >> index.html
+        echo '</div>' >> index.html
+        echo '</section>' >> index.html
+        echo '</div>' >> index.html
+        echo '</body>' >> index.html
+        echo '</html>' >> index.html
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
