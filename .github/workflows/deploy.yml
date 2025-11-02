@@ -26,8 +26,7 @@ jobs:
 
     - name: Build HTML Resume
       run: |
-        # Create main index.html
-        cat > index.html << 'HTML_EOF'
+        cat > index.html << 'EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -52,18 +51,16 @@ jobs:
 
         <section class="summary">
             <h2>🎯 个人简介</h2>
-            <p>资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C，主导开发过多款下载量超百万的应用。熟练掌握 iOS 全栈开发，包括 UI/UX 设计、性能优化、架构设计和团队管理。</p>
+            <p>资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C，主导开发过多款下载量超百万的应用。</p>
         </section>
 
         <section class="experience">
             <h2>💼 工作经历</h2>
-
             <div class="job">
                 <h3>高级 iOS 工程师 | 移动互联网科技公司</h3>
                 <p class="date">2021年3月 - 至今 | 北京</p>
                 <ul>
                     <li>主导公司核心产品 iOS 应用开发，使用 Swift 和 SwiftUI 构建现代化用户界面</li>
-                    <li>实现 MVVM + Combine 架构模式，提升代码可维护性和团队协作效率</li>
                     <li>优化应用性能，启动时间减少 70%，内存使用降低 40%</li>
                 </ul>
             </div>
@@ -77,24 +74,12 @@ jobs:
                 <span class="tag">UIKit</span>
                 <span class="tag">Combine</span>
                 <span class="tag">Core Data</span>
-                <span class="tag">MVVM</span>
-                <span class="tag">Face ID</span>
-                <span class="tag">Apple Pay</span>
-            </div>
-        </section>
-
-        <section class="projects">
-            <h2>📱 已发布应用</h2>
-            <div class="project">
-                <h3>智理财 - 个人理财管理应用</h3>
-                <p>⭐ 下载量: 100万+ | 评分: 4.8/5.0</p>
-                <p>负责核心开发，使用 Swift 和 SwiftUI 构建现代化用户界面。</p>
             </div>
         </section>
     </div>
 </body>
 </html>
-HTML_EOF
+EOF
 
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
