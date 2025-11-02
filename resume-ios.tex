@@ -1,0 +1,202 @@
+\documentclass[10pt, a4paper]{awesome-cv}
+
+% 编码设置
+\usepackage[UTF8]{ctex}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+% 设置中文字体
+\setCJKmainfont{PingFang SC}
+\setCJKsansfont{PingFang SC}
+\setCJKmonofont{PingFang SC}
+
+% 个人信息配置
+\name{张}{三}
+\address{北京市朝阳区}
+\mobile{138-8888-8888}
+\email{zhangsan@email.com}
+\github{zhangsan}
+\linkedin{zhangsan}
+\homepage{zhangsan.dev}
+
+% App Store 链接（可选）
+\extrainfo{\faAppStore\ https://apps.apple.com/developer/zhangsan}
+
+% 简历主题颜色（iOS 蓝色）
+\colorlet{awesome}{awesome-blue}
+
+% 开始文档
+\begin{document}
+
+% 标题部分
+\makecvheader
+
+% 个人简介部分
+\cvsection{个人简介}
+\begin{cvparagraph}
+资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C，主导开发过多款下载量超百万的应用。熟练掌握 iOS 全栈开发，包括 UI/UX 设计、性能优化、架构设计和团队管理。对 Apple 生态系统有深入理解，热衷于探索最新的 iOS 技术和最佳实践。
+\end{cvparagraph}
+
+% 工作经历部分
+\cvsection{工作经历}
+
+\cventry
+  {2021年3月 - 至今}
+  {高级 iOS 工程师}
+  {移动互联网科技公司}
+  {北京}
+  {
+    \begin{cvitems}
+      \item {主导公司核心产品 iOS 应用开发，使用 Swift 和 SwiftUI 构建现代化用户界面}
+      \item {实现 MVVM + Combine 架构模式，提升代码可维护性和团队协作效率}
+      \item {优化应用性能，启动时间减少 70\%，内存使用降低 40\%}
+      \item {集成 Core Data、CloudKit 实现数据同步和离线功能}
+      \item {负责 App Store 上架和版本管理，保持 4.8+ 评分}
+    \end{cvitems}
+  }
+
+\cventry
+  {2019年6月 - 2021年2月}
+  {iOS 开发工程师}
+  {金融科技公司}
+  {上海}
+  {
+    \begin{cvitems}
+      \item {开发金融类 iOS 应用，涉及支付、理财等核心功能}
+      \item {使用 Face ID 和 Touch ID 实现生物识别安全认证}
+      \item {集成 Apple Pay 和银联支付 SDK}
+      \item {实现推送通知和消息中心功能}
+      \item {参与应用安全审计和代码审查}
+    \end{cvitems}
+  }
+
+\cventry
+  {2018年7月 - 2019年5月}
+  {初级 iOS 开发工程师}
+  {创业公司}
+  {深圳}
+  {
+    \begin{cvitems}
+      \item {负责公司首款 iOS 应用的开发和维护}
+      \item {使用 Objective-C 进行现有功能优化和 Bug 修复}
+      \item {协助设计和实现 UI 组件库}
+      \item {参与产品需求分析和技术方案讨论}
+    \end{cvitems}
+  }
+
+% iOS 技术栈部分
+\cvsection{iOS 技术栈}
+
+\cvtag{Swift}
+\cvtag{SwiftUI}
+\cvtag{Objective-C}
+\cvtag{UIKit}
+\cvtag{SwiftData}
+\cvtag{Core Data}
+\cvtag{CloudKit}
+
+\divider
+
+\cvtag{MVVM}
+\cvtag{Combine}
+\cvtag{RxSwift}
+\cvtag{Alamofire}
+\cvtag{Kingfisher}
+\cvtag{SnapKit}
+\cvtag{CocoaPods}
+\cvtag{Swift Package Manager}
+
+\divider
+
+\cvtag{Face ID}
+\cvtag{Touch ID}
+\cvtag{Apple Pay}
+\cvtag{Push Notifications}
+\cvtag{Background Modes}
+\cvtag{Core Location}
+\cvtag{Core Bluetooth}
+\cvtag{HealthKit}
+
+% 已发布应用部分
+\cvsection{已发布应用}
+
+\cvachievement{\faMobile}{智理财}{个人理财管理应用}{超过 100 万下载量，App Store 评分 4.8，功能包括预算管理、投资组合追踪和财务分析}
+
+\cvachievement{\faMobile}{健康助手}{健康管理应用}{集成 HealthKit 和 Core Motion，支持运动追踪、健康监测和数据可视化}
+
+\cvachievement{\faMobile}{即时通讯}{企业通讯应用}{支持实时消息、音视频通话和文件分享，月活跃用户 50 万+}
+
+\cvachievement{\faMobile}{智能家居}{IoT 控制应用}{使用 Core Bluetooth 连接智能设备，支持场景自动化和远程控制}
+
+% 教育背景部分
+\cvsection{教育背景}
+
+\cventry
+  {2015年9月 - 2019年6月}
+  {计算机科学与技术学士}
+  {XX 大学}
+  {北京}
+  {
+    \begin{cvitems}
+      \item {GPA: 3.9/4.0，专业排名前 5\%}
+      \item {主修课程：移动应用开发、算法设计、数据结构、计算机网络}
+      \item {毕业设计：基于 iOS 的校园导航应用，获得优秀毕业设计奖}
+      \item {Apple 开发者大学俱乐部成员}
+    \end{cvitems}
+  }
+
+% 证书与认证部分
+\cvsection{证书与认证}
+
+\cvachievement{\faCertificate}{2023年}{Apple 认证 iOS 开发者}{通过 Apple 官方认证考试}
+
+\cvachievement{\faCertificate}{2022年}{Swift 高级开发认证}{Swift.org 官方认证}
+
+\cvachievement{\faTrophy}{2022年}{WWDC 学生奖学金}{参加 Apple 全球开发者大会}
+
+\cvachievement{\faCertificate}{2021年}{AWS 云从业者认证}{了解云服务在移动应用中的应用}
+
+% 开源贡献部分
+\cvsection{开源贡献}
+
+\cvproject
+  {SwiftUI 组件库}
+  {https://github.com/zhangsan/swiftui-components}
+  {开发并维护一个包含 50+ 可复用 SwiftUI 组件的开源库，获得 2k+ stars}
+
+\cvproject
+  {网络请求框架}
+  {https://github.com/zhangsan/network-manager}
+  {基于 Combine 的网络请求框架，简化 API 调用和错误处理}
+
+% 技术博客与演讲部分
+\cvsection{技术博客与演讲}
+
+\cvachievement{\faBlog}{技术博客}{https://medium.com/@zhangsan}{定期发布 iOS 开发技术文章，累计阅读量 10万+}
+
+\cvachievement{\faUsers}{技术分享}{2022年 iOS Meetup}{分享 "SwiftUI 在大型项目中的实践经验"}
+
+\cvachievement{\faUsers}{内部培训}{2021-2023年}{担任公司内部 iOS 开发培训讲师}
+
+\cvachievement{\faBook}{技术专栏}{InfoQ 中文站}{撰写移动开发最佳实践专栏}
+
+% 语言能力部分
+\cvsection{语言能力}
+
+\cvskill{中文}{5}
+\divider
+\cvskill{英语}{5}
+\divider
+\cvskill{日语}{3}
+
+% 兴趣爱好部分
+\cvsection{兴趣爱好}
+
+\cvtag{产品设计}
+\cvtag{用户体验}
+\cvtag{开源项目}
+\cvtag{技术写作}
+\cvtag{摄影}
+\cvtag{旅行}
+
+\end{document}

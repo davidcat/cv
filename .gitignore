@@ -39,8 +39,23 @@ yarn-error.log*
 *.pdf
 *.html
 resume.pdf
+resume-ios.pdf
 index.html
 temp.html
+
+# LaTeX 生成文件
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.vrb
 
 # 操作系统
 Thumbs.db
