@@ -37,28 +37,35 @@ jobs:
         echo '<body>' >> index.html
         echo '<div class="container">' >> index.html
         echo '<header>' >> index.html
-        echo '<h1>张三</h1>' >> index.html
+        echo '<h1>故知</h1>' >> index.html
         echo '<div class="contact-info">' >> index.html
-        echo '<p>📱 138-8888-8888 | ✉️ zhangsan@email.com | 📍 北京市</p>' >> index.html
-        echo '<p><a href="https://linkedin.com/in/zhangsan">LinkedIn</a> | <a href="https://github.com/zhangsan">GitHub</a></p>' >> index.html
+        echo '<p>📱 15214363830 | ✉️ shawn2045@qq.com | 📍 深圳市</p>' >> index.html
+        echo '<p><a href="https://linkedin.com/in/guzhi">LinkedIn</a> | <a href="https://github.com/guzhi">GitHub</a></p>' >> index.html
         echo '</div>' >> index.html
         echo '</header>' >> index.html
         echo '<section class="summary">' >> index.html
         echo '<h2>🎯 个人简介</h2>' >> index.html
-        echo '<p>资深 iOS 开发工程师，具有 6 年移动应用开发经验。精通 Swift 和 Objective-C。</p>' >> index.html
+        echo '<p>资深 iOS 开发工程师，具有 10 年移动应用开发经验。精通 Objective-C 和 Swift 编程，熟悉主流开源框架。拥有金融保险、工业互联网领域工作经历，同时掌握 HarmonyOS 开发。</p>' >> index.html
         echo '</section>' >> index.html
         echo '<section class="experience">' >> index.html
         echo '<h2>💼 工作经历</h2>' >> index.html
         echo '<div class="job">' >> index.html
-        echo '<h3>高级 iOS 工程师 | 移动互联网科技公司</h3>' >> index.html
-        echo '<p class="date">2021年3月 - 至今 | 北京</p>' >> index.html
-        echo '<ul><li>主导公司核心产品 iOS 应用开发</li><li>优化应用性能，启动时间减少 70%</li></ul>' >> index.html
+        echo '<h3>高级 iOS 工程师 | 深圳市新源润产品信息技术有限公司</h3>' >> index.html
+        echo '<p class="date">2023年2月 - 至今 | 深圳</p>' >> index.html
+        echo '<ul><li>负责公司 iOS 应用开发和维护工作</li><li>参与项目需求评审和代码 review</li></ul>' >> index.html
+        echo '</div>' >> index.html
+        echo '<div class="job">' >> index.html
+        echo '<h3>iOS 开发工程师 | 天瑞集团</h3>' >> index.html
+        echo '<p class="date">2020年1月 - 2023年1月 | 深圳</p>' >> index.html
+        echo '<ul><li>主导工业互联网项目开发</li><li><strong>业绩：</strong>项目入选工信部2022年工业互联网试点示范项目</li></ul>' >> index.html
         echo '</div>' >> index.html
         echo '</section>' >> index.html
         echo '<section class="skills">' >> index.html
         echo '<h2>🛠️ 技术栈</h2>' >> index.html
         echo '<div class="skill-tags">' >> index.html
-        echo '<span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span>' >> index.html
+        echo '<span class="tag">Objective-C</span><span class="tag">Swift</span><span class="tag">HarmonyOS</span>' >> index.html
+        echo '<span class="tag">AFNetworking</span><span class="tag">Alamofire</span><span class="tag">SnapKit</span>' >> index.html
+        echo '<span class="tag">SDWebImage</span><span class="tag">Masonry</span><span class="tag">Kingfisher</span>' >> index.html
         echo '</div>' >> index.html
         echo '</section>' >> index.html
         echo '</div>' >> index.html
