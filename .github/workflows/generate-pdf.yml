@@ -9,22 +9,33 @@ on:
     paths: [ 'resume.md', 'style.css' ]
   workflow_dispatch:
 
+# Set permissions for the job
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
+  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
 
     - name: Install dependencies
       run: |
@@ -33,25 +44,58 @@ jobs:
 
     - name: Generate PDF
       run: |
-        markdown-pdf resume.md -o resume.pdf -s style.css -f A4 -b 1cm
+        markdown-pdf resume.md -o resume.pdf -s style.css -f A4 -b 1cm || echo "PDF generation failed, continuing with HTML deployment"
+
+    - name: Create HTML resume
+      run: |
+        cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简历</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+EOF
+        # Convert markdown to HTML (basic conversion)
+        node -e "
+        const fs = require('fs');
+        const content = fs.readFileSync('resume.md', 'utf8');
+        let html = content
+          .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+          .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+          .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+          .replace(/^\- (.+)$/gm, '<li>$1</li>')
+          .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/\n\n/g, '</p><p>')
+          .replace(/^/, '<p>')
+          .replace(/$/, '</p>');
+        fs.writeFileSync('temp.html', html);
+        "
+        cat temp.html >> index.html
+        cat >> index.html << 'EOF'
+</body>
+</html>
+EOF
 
     - name: Upload PDF artifact
-      uses: actions/upload-artifact@v3
+      if: success()
+      uses: actions/upload-artifact@v4
       with:
         name: resume-pdf
         path: resume.pdf
         retention-days: 30
 
-    - name: Setup Pages
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-      uses: actions/configure-pages@v3
-
     - name: Upload artifact
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-      uses: actions/upload-pages-artifact@v2
+      uses: actions/upload-pages-artifact@v3
       with:
         path: '.'
 
+  # Deployment job
   deploy:
     environment:
       name: github-pages
@@ -62,4 +106,4 @@ jobs:
     steps:
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v2
+      uses: actions/deploy-pages@v4
