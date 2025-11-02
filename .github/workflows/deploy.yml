@@ -50,14 +50,23 @@ jobs:
         echo '<section class="experience">' >> index.html
         echo '<h2>💼 工作经历</h2>' >> index.html
         echo '<div class="job">' >> index.html
-        echo '<h3>高级 iOS 工程师 | 深圳市新源润产品信息技术有限公司</h3>' >> index.html
+        echo '<h3>iOS 工程师 | 深圳市新源润产品信息技术有限公司</h3>' >> index.html
         echo '<p class="date">2023年2月 - 至今 | 深圳</p>' >> index.html
-        echo '<ul><li>负责公司 iOS 应用开发和维护工作</li><li>参与项目需求评审和代码 review</li></ul>' >> index.html
+        echo '<ul>' >> index.html
+        echo '<li>负责公司 iOS 应用开发和维护工作</li>' >> index.html
+        echo '<li>主导技术选型，制定开发规范和最佳实践</li>' >> index.html
+        echo '<li>负责新人技术指导，推动团队技术能力提升</li>' >> index.html
+        echo '<li>编写技术文档，建立团队知识库</li>' >> index.html
+        echo '</ul>' >> index.html
         echo '</div>' >> index.html
         echo '<div class="job">' >> index.html
         echo '<h3>iOS 开发工程师 | 天瑞集团</h3>' >> index.html
         echo '<p class="date">2020年1月 - 2023年1月 | 深圳</p>' >> index.html
-        echo '<ul><li>主导工业互联网项目开发</li><li><strong>业绩：</strong>项目入选工信部2022年工业互联网试点示范项目</li></ul>' >> index.html
+        echo '<ul>' >> index.html
+        echo '<li>主导智慧矿山工业互联网项目开发</li>' >> index.html
+        echo '<li><strong>业绩：</strong>项目入选工信部2022年工业互联网试点示范项目</li>' >> index.html
+        echo '<li>性能优化：启动时间优化30%，内存使用降低25%</li>' >> index.html
+        echo '</ul>' >> index.html
         echo '</div>' >> index.html
         echo '</section>' >> index.html
         echo '<section class="skills">' >> index.html
@@ -66,6 +75,7 @@ jobs:
         echo '<span class="tag">Objective-C</span><span class="tag">Swift</span><span class="tag">HarmonyOS</span>' >> index.html
         echo '<span class="tag">AFNetworking</span><span class="tag">Alamofire</span><span class="tag">SnapKit</span>' >> index.html
         echo '<span class="tag">SDWebImage</span><span class="tag">Masonry</span><span class="tag">Kingfisher</span>' >> index.html
+        echo '<span class="tag">Moya</span><span class="tag">RealmSwift</span><span class="tag">WebSocket</span>' >> index.html
         echo '</div>' >> index.html
         echo '</section>' >> index.html
         echo '</div>' >> index.html
