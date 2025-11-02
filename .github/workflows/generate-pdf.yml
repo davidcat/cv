@@ -46,16 +46,16 @@ jobs:
     - name: Create HTML resume
       run: |
         cat > index.html << 'HTML_EOF'
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简历</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-HTML_EOF
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>简历</title>
+            <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+        HTML_EOF
 
         node -e "
         const fs = require('fs');
@@ -77,9 +77,9 @@ HTML_EOF
         cat temp.html >> index.html
 
         cat >> index.html << 'HTML_EOF'
-</body>
-</html>
-HTML_EOF
+        </body>
+        </html>
+        HTML_EOF
 
     - name: Upload PDF artifact
       if: success()
