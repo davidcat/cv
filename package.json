@@ -26,9 +26,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/resume.git"
+    "url": "https://github.com/davidcat/cv.git"
   },
-  "homepage": "https://yourusername.github.io/resume",
+  "homepage": "https://davidcat.github.io/cv",
   "engines": {
     "node": ">=14.0.0"
   }

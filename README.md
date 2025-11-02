@@ -16,8 +16,8 @@
 ### 1. 克隆模板
 
 ```bash
-git clone https://github.com/yourusername/resume.git
-cd resume
+git clone https://github.com/davidcat/cv.git
+cd cv
 ```
 
 ### 2. 编辑简历内容
@@ -56,7 +56,7 @@ markdown-pdf resume.md -o resume.pdf -s style.css
 ## 📁 项目结构
 
 ```
-resume/
+cv/
 ├── resume.md              # 简历 Markdown 源文件
 ├── style.css              # CSS 样式文件
 ├── README.md              # 项目说明文档
@@ -78,9 +78,10 @@ resume/
 
 1. 进入仓库的 Settings 页面
 2. 找到 Pages 选项
-3. Source 选择 "Deploy from a branch"
-4. Branch 选择 "gh-pages"
-5. 点击 Save
+3. Source 选择 "GitHub Actions"
+4. 点击 Save
+
+系统会自动使用 GitHub Actions 部署到 GitHub Pages。
 
 ## 📖 使用指南
 
