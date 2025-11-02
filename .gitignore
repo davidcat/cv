@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 临时文件
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+
+# 编辑器
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# 备份文件
+*.bak
+*.backup
+
+# 日志文件
+*.log
+
