@@ -1,0 +1,35 @@
+{
+  "name": "professional-resume",
+  "version": "1.0.0",
+  "description": "A modern resume template with Markdown, PDF export, and GitHub Pages support",
+  "main": "resume.md",
+  "scripts": {
+    "build": "markdown-pdf resume.md -o resume.pdf -s style.css -f A4 -b 1cm",
+    "serve": "npx http-server . -p 8080 -o",
+    "preview": "npx markdown-it README.md > README.html && open README.html",
+    "dev": "npm run build && npm run serve"
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "markdown",
+    "pdf",
+    "github-pages",
+    "template"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "markdown-it": "^13.0.1",
+    "markdown-pdf": "^10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/resume.git"
+  },
+  "homepage": "https://yourusername.github.io/resume",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

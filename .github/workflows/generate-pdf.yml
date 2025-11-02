@@ -1,0 +1,54 @@
+name: Generate PDF Resume
+
+on:
+  push:
+    branches: [ main, master ]
+    paths: [ 'resume.md', 'style.css' ]
+  pull_request:
+    branches: [ main, master ]
+    paths: [ 'resume.md', 'style.css' ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        npm install -g markdown-pdf
+        npm install -g puppeteer
+
+    - name: Generate PDF
+      run: |
+        markdown-pdf resume.md -o resume.pdf -s style.css -f A4 -b 1cm
+
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: resume-pdf
+        path: resume.pdf
+        retention-days: 30
+
+    - name: Deploy to GitHub Pages
+      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        keep_files: true
+        destination_dir: .
