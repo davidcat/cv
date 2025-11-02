@@ -9,19 +9,16 @@ on:
     paths: [ 'resume.md', 'style.css' ]
   workflow_dispatch:
 
-# Set permissions for the job
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -48,7 +45,7 @@ jobs:
 
     - name: Create HTML resume
       run: |
-        cat > index.html << 'EOF'
+        cat > index.html << 'HTML_EOF'
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -58,8 +55,8 @@ jobs:
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-EOF
-        # Convert markdown to HTML (basic conversion)
+HTML_EOF
+
         node -e "
         const fs = require('fs');
         const content = fs.readFileSync('resume.md', 'utf8');
@@ -76,11 +73,13 @@ EOF
           .replace(/$/, '</p>');
         fs.writeFileSync('temp.html', html);
         "
+
         cat temp.html >> index.html
-        cat >> index.html << 'EOF'
+
+        cat >> index.html << 'HTML_EOF'
 </body>
 </html>
-EOF
+HTML_EOF
 
     - name: Upload PDF artifact
       if: success()
@@ -95,7 +94,6 @@ EOF
       with:
         path: '.'
 
-  # Deployment job
   deploy:
     environment:
       name: github-pages
