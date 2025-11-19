@@ -536,6 +536,7 @@ cat > index.html << 'EOF'
                 <li><a href="#experience">经历</a></li>
                 <li><a href="#skills">技能</a></li>
                 <li><a href="#projects">项目</a></li>
+                <li><a href="#contact">联系</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
@@ -555,22 +556,14 @@ echo '            <div class="container">' >> index.html
 echo '                <div class="hero-content">' >> index.html
 echo '                    <h1>故知</h1>' >> index.html
 echo '                    <p class="subtitle">iOS 开发工程师</p>' >> index.html
-echo '                    <p class="description">专注于iOS应用开发，具有丰富的移动端开发经验，擅长使用Swift和Objective-C构建高质量的iOS应用。</p>' >> index.html
+echo '                    <p class="description">资深 iOS 开发工程师，具有 10 年移动应用开发经验。精通 Objective-C 和 Swift 编程，熟悉 AFNetworking、SDWebImage、Masonry、Alamofire、SnapKit、Kingfisher 等主流开源框架。拥有金融保险、工业互联网领域工作经历，具备良好的编程习惯和问题解决能力。</p>' >> index.html
 echo '                    <div class="contact-links">' >> index.html
 
 # 从Markdown中提取联系方式信息
-pandoc 故知-iOS.md -f markdown -t html --wrap=none | \
-sed -n '/^## /q;p' | \
-grep -E '(邮箱|GitHub|博客)' | \
-while read line; do
-    if [[ $line == *"邮箱"* ]]; then
-        email=$(echo "$line" | sed 's/.*：\([^<]*\).*/\1/')
-        echo '                        <a href="mailto:'$email'" class="contact-link">邮箱</a>' >> index.html
-    elif [[ $line == *"GitHub"* ]]; then
-        github=$(echo "$line" | sed 's/.*：\([^<]*\).*/\1/')
-        echo '                        <a href="https://github.com/'$github'" target="_blank" class="contact-link">GitHub</a>' >> index.html
-    fi
-done
+echo '                        <a href="mailto:shawn2045@qq.com" class="contact-link">📧 邮箱</a>' >> index.html
+echo '                        <a href="https://linkedin.com/in/guzhi" target="_blank" class="contact-link">💼 LinkedIn</a>' >> index.html
+echo '                        <a href="https://github.com/guzhi" target="_blank" class="contact-link">🐙 GitHub</a>' >> index.html
+echo '                        <a href="https://apps.apple.com/developer/guzhi" target="_blank" class="contact-link">📱 App Store</a>' >> index.html
 
 echo '                    </div>' >> index.html
 echo '                </div>' >> index.html
@@ -587,38 +580,60 @@ echo '                    <p class="section-subtitle">在不同公司和项目�
 echo '                </div>' >> index.html
 echo '                <div class="timeline">' >> index.html
 
-# 使用pandoc转换工作经历部分 - 简化处理
+# 深圳市新源润产品信息技术有限公司
 echo '                    <div class="timeline-item">' >> index.html
 echo '                        <div class="timeline-header">' >> index.html
-echo '                            <h3 class="timeline-title">资深iOS开发工程师</h3>' >> index.html
+echo '                            <h3 class="timeline-title">iOS 工程师</h3>' >> index.html
 echo '                            <div class="timeline-meta">' >> index.html
-echo '                                <span class="timeline-company">某知名互联网公司</span>' >> index.html
-echo '                                <span class="timeline-period">2022 - 至今</span>' >> index.html
+echo '                                <span class="timeline-company">深圳市新源润产品信息技术有限公司</span>' >> index.html
+echo '                                <span class="timeline-period">2023年2月 - 至今</span>' >> index.html
 echo '                            </div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                        <div class="timeline-description">' >> index.html
-echo '                            <p>负责核心iOS应用的架构设计和功能开发。</p>' >> index.html
+echo '                            <p>负责公司 iOS 应用开发和维护工作</p>' >> index.html
 echo '                            <ul>' >> index.html
-echo '                                <li>带领团队完成多个重要项目的迭代和优化</li>' >> index.html
-echo '                                <li>推动移动端技术栈升级和最佳实践落地</li>' >> index.html
-echo '                                <li>优化应用性能，提升用户体验</li>' >> index.html
+echo '                                <li>参与项目需求评审和代码 review</li>' >> index.html
+echo '                                <li>编写技术文档和项目交接工作</li>' >> index.html
+echo '                                <li>主导技术选型，制定开发规范和最佳实践</li>' >> index.html
+echo '                                <li>负责新人技术指导，推动团队技术能力提升</li>' >> index.html
 echo '                            </ul>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
+# 天瑞集团
 echo '                    <div class="timeline-item">' >> index.html
 echo '                        <div class="timeline-header">' >> index.html
-echo '                            <h3 class="timeline-title">iOS开发工程师</h3>' >> index.html
+echo '                            <h3 class="timeline-title">iOS 开发工程师</h3>' >> index.html
 echo '                            <div class="timeline-meta">' >> index.html
-echo '                                <span class="timeline-company">某科技公司</span>' >> index.html
-echo '                                <span class="timeline-period">2020 - 2021</span>' >> index.html
+echo '                                <span class="timeline-company">天瑞集团</span>' >> index.html
+echo '                                <span class="timeline-period">2020年1月 - 2023年1月</span>' >> index.html
 echo '                            </div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                        <div class="timeline-description">' >> index.html
-echo '                            <p>参与多个iOS应用的开发和维护工作。</p>' >> index.html
+echo '                            <p>主导天瑞华为联合创新研发中心工业互联网项目开发工作</p>' >> index.html
 echo '                            <ul>' >> index.html
-echo '                                <li>参与多个iOS应用的开发和维护</li>' >> index.html
-echo '                                <li>与产品、设计团队紧密合作，确保项目按时交付</li>' >> index.html
+echo '                                <li>主导老项目的重构工作</li>' >> index.html
+echo '                                <li>负责各类项目渠道分发工作</li>' >> index.html
+echo '                                <li><strong>业绩</strong>: 项目入选工信部2022年工业互联网试点示范项目</li>' >> index.html
+echo '                            </ul>' >> index.html
+echo '                        </div>' >> index.html
+echo '                    </div>' >> index.html
+
+# 软通动力
+echo '                    <div class="timeline-item">' >> index.html
+echo '                        <div class="timeline-header">' >> index.html
+echo '                            <h3 class="timeline-title">iOS 开发工程师</h3>' >> index.html
+echo '                            <div class="timeline-meta">' >> index.html
+echo '                                <span class="timeline-company">软通动力</span>' >> index.html
+echo '                                <span class="timeline-period">2016年6月 - 2019年12月</span>' >> index.html
+echo '                            </div>' >> index.html
+echo '                        </div>' >> index.html
+echo '                        <div class="timeline-description">' >> index.html
+echo '                            <p>主导平安养老险渠道开发部egis-isp系统易展通项目组iOS端开发工作</p>' >> index.html
+echo '                            <ul>' >> index.html
+echo '                                <li>跟踪线上 crash 并修复，保障崩溃率在万分之五以下</li>' >> index.html
+echo '                                <li>负责接入听云、友盟、神兵等服务统计工作</li>' >> index.html
+echo '                                <li>参与需求开发评审工作，对 app 中存在的问题提出合理化建议</li>' >> index.html
 echo '                            </ul>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
@@ -637,44 +652,54 @@ echo '                    <p class="section-subtitle">掌握的编程语言、�
 echo '                </div>' >> index.html
 echo '                <div class="skills-grid">' >> index.html
 
-# 技能分类
+# 编程语言与框架
 echo '                    <div class="skill-category">' >> index.html
 echo '                        <h3>编程语言</h3>' >> index.html
 echo '                        <div class="skill-list">' >> index.html
-echo '                            <span class="skill-tag">Swift</span>' >> index.html
 echo '                            <span class="skill-tag">Objective-C</span>' >> index.html
-echo '                            <span class="skill-tag">JavaScript</span>' >> index.html
+echo '                            <span class="skill-tag">Swift</span>' >> index.html
+echo '                            <span class="skill-tag">HarmonyOS</span>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
 echo '                    <div class="skill-category">' >> index.html
-echo '                        <h3>iOS框架</h3>' >> index.html
+echo '                        <h3>UI框架</h3>' >> index.html
 echo '                        <div class="skill-list">' >> index.html
-echo '                            <span class="skill-tag">SwiftUI</span>' >> index.html
 echo '                            <span class="skill-tag">UIKit</span>' >> index.html
-echo '                            <span class="skill-tag">Combine</span>' >> index.html
+echo '                            <span class="skill-tag">SwiftUI</span>' >> index.html
+echo '                            <span class="skill-tag">SnapKit</span>' >> index.html
+echo '                            <span class="skill-tag">Masonry</span>' >> index.html
+echo '                        </div>' >> index.html
+echo '                    </div>' >> index.html
+
+echo '                    <div class="skill-category">' >> index.html
+echo '                        <h3>网络框架</h3>' >> index.html
+echo '                        <div class="skill-list">' >> index.html
+echo '                            <span class="skill-tag">AFNetworking</span>' >> index.html
+echo '                            <span class="skill-tag">Alamofire</span>' >> index.html
+echo '                            <span class="skill-tag">Moya</span>' >> index.html
+echo '                        </div>' >> index.html
+echo '                    </div>' >> index.html
+
+echo '                    <div class="skill-category">' >> index.html
+echo '                        <h3>数据与图像</h3>' >> index.html
+echo '                        <div class="skill-list">' >> index.html
+echo '                            <span class="skill-tag">SDWebImage</span>' >> index.html
+echo '                            <span class="skill-tag">Kingfisher</span>' >> index.html
+echo '                            <span class="skill-tag">RealmSwift</span>' >> index.html
 echo '                            <span class="skill-tag">Core Data</span>' >> index.html
-echo '                            <span class="skill-tag">Core Animation</span>' >> index.html
+echo '                            <span class="skill-tag">HandyJSON</span>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
 echo '                    <div class="skill-category">' >> index.html
 echo '                        <h3>开发工具</h3>' >> index.html
 echo '                        <div class="skill-list">' >> index.html
-echo '                            <span class="skill-tag">Xcode</span>' >> index.html
 echo '                            <span class="skill-tag">Git</span>' >> index.html
-echo '                            <span class="skill-tag">Fastlane</span>' >> index.html
-echo '                            <span class="skill-tag">CocoaPods</span>' >> index.html
-echo '                            <span class="skill-tag">Swift Package Manager</span>' >> index.html
-echo '                        </div>' >> index.html
-echo '                    </div>' >> index.html
-
-echo '                    <div class="skill-category">' >> index.html
-echo '                        <h3>架构模式</h3>' >> index.html
-echo '                        <div class="skill-list">' >> index.html
-echo '                            <span class="skill-tag">MVVM</span>' >> index.html
-echo '                            <span class="skill-tag">MVC</span>' >> index.html
-echo '                            <span class="skill-tag">VIPER</span>' >> index.html
+echo '                            <span class="skill-tag">Jenkins</span>' >> index.html
+echo '                            <span class="skill-tag">SwiftLint</span>' >> index.html
+echo '                            <span class="skill-tag">Postman</span>' >> index.html
+echo '                            <span class="skill-tag">Charles</span>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
@@ -692,43 +717,91 @@ echo '                    <p class="section-subtitle">参与开发和维护的�
 echo '                </div>' >> index.html
 echo '                <div class="projects-grid">' >> index.html
 
+# 智慧矿山项目
 echo '                    <div class="project-card">' >> index.html
 echo '                        <div class="project-header">' >> index.html
-echo '                            <h3 class="project-title">电商平台iOS应用</h3>' >> index.html
-echo '                            <div class="project-meta">2022.06 - 2023.03</div>' >> index.html
+echo '                            <h3 class="project-title">智慧矿山 | 工业互联网平台</h3>' >> index.html
+echo '                            <div class="project-meta">2020年6月 - 2023年1月 | 天瑞集团</div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                        <div class="project-content">' >> index.html
 echo '                            <div class="project-description">' >> index.html
-echo '                                负责核心电商平台iOS应用的重构和功能迭代，使用Swift和SwiftUI构建现代化用户界面，优化用户体验和应用性能。' >> index.html
+echo '                                工业互联网数字化平台，入选工信部2022年工业互联网试点示范项目。主导智慧矿山客户端的维护工作，使用RealmSwift进行数据持久化，负责调度员相关业务的开发，实现实时调度和监控功能。' >> index.html
 echo '                            </div>' >> index.html
 echo '                            <div class="project-tech">' >> index.html
-echo '                                <span class="tech-tag">Swift</span>' >> index.html
-echo '                                <span class="tech-tag">SwiftUI</span>' >> index.html
-echo '                                <span class="tech-tag">MVVM</span>' >> index.html
-echo '                                <span class="tech-tag">Combine</span>' >> index.html
-echo '                                <span class="tech-tag">Core Data</span>' >> index.html
+echo '                                <span class="tech-tag">SnapKit</span>' >> index.html
+echo '                                <span class="tech-tag">Moya</span>' >> index.html
+echo '                                <span class="tech-tag">HandyJSON</span>' >> index.html
+echo '                                <span class="tech-tag">RealmSwift</span>' >> index.html
+echo '                                <span class="tech-tag">WebSocket</span>' >> index.html
+echo '                                <span class="tech-tag">SwiftLint</span>' >> index.html
 echo '                            </div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
+# 天瑞水泥项目
 echo '                    <div class="project-card">' >> index.html
 echo '                        <div class="project-header">' >> index.html
-echo '                            <h3 class="project-title">社交分享应用</h3>' >> index.html
-echo '                            <div class="project-meta">2021.08 - 2022.02</div>' >> index.html
+echo '                            <h3 class="project-title">天瑞水泥 | 数字营销服务平台</h3>' >> index.html
+echo '                            <div class="project-meta">2020年1月 - 2023年1月 | 天瑞集团</div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                        <div class="project-content">' >> index.html
 echo '                            <div class="project-description">' >> index.html
-echo '                                开发一款专注于图片分享和社交互动的iOS应用，支持实时消息推送和多媒体内容处理，实现用户间的即时通讯功能。' >> index.html
+echo '                                天瑞集团数字营销服务平台的iOS客户端，维护月活跃用户50万+。负责订单系统、分红和积分、竞价模块开发，支持日均10万+订单处理。集成微信支付、支付宝、Apple Pay等多种支付方式。' >> index.html
 echo '                            </div>' >> index.html
 echo '                            <div class="project-tech">' >> index.html
-echo '                                <span class="tech-tag">Objective-C</span>' >> index.html
-echo '                                <span class="tech-tag">UIKit</span>' >> index.html
-echo '                                <span class="tech-tag">Socket.io</span>' >> index.html
-echo '                                <span class="tech-tag">Core Image</span>' >> index.html
+echo '                                <span class="tech-tag">SnapKit</span>' >> index.html
+echo '                                <span class="tech-tag">Moya</span>' >> index.html
+echo '                                <span class="tech-tag">HandyJSON</span>' >> index.html
+echo '                                <span class="tech-tag">RealmSwift</span>' >> index.html
+echo '                                <span class="tech-tag">支付SDK</span>' >> index.html
 echo '                            </div>' >> index.html
 echo '                        </div>' >> index.html
 echo '                    </div>' >> index.html
 
+# 易展通项目
+echo '                    <div class="project-card">' >> index.html
+echo '                        <div class="project-header">' >> index.html
+echo '                            <h3 class="project-title">易展通 | 养老险直销展销平台</h3>' >> index.html
+echo '                            <div class="project-meta">2016年6月 - 2019年12月 | 软通动力</div>' >> index.html
+echo '                        </div>' >> index.html
+echo '                        <div class="project-content">' >> index.html
+echo '                            <div class="project-description">' >> index.html
+echo '                                平安养老险直销业务员移动展销平台，服务平安集团2万+业务员。实现平安一账通对接，国密加密处理，地图调用和定位服务，ECharts关系图展示客户关系网络。设计app安全策略，通过平安安全审计。' >> index.html
+echo '                            </div>' >> index.html
+echo '                            <div class="project-tech">' >> index.html
+echo '                                <span class="tech-tag">大企业分发</span>' >> index.html
+echo '                                <span class="tech-tag">国密加密</span>' >> index.html
+echo '                                <span class="tech-tag">hybrid开发</span>' >> index.html
+echo '                                <span class="tech-tag">地图API</span>' >> index.html
+echo '                                <span class="tech-tag">ECharts</span>' >> index.html
+echo '                                <span class="tech-tag">安全加固</span>' >> index.html
+echo '                            </div>' >> index.html
+echo '                        </div>' >> index.html
+echo '                    </div>' >> index.html
+
+echo '                </div>' >> index.html
+echo '            </div>' >> index.html
+echo '        </section>' >> index.html
+
+# 联系方式部分
+echo '        <section id="contact">' >> index.html
+echo '            <div class="container">' >> index.html
+echo '                <div class="section-header">' >> index.html
+echo '                    <h2 class="section-title">联系方式</h2>' >> index.html
+echo '                    <p class="section-subtitle">欢迎与我联系讨论iOS开发相关话题</p>' >> index.html
+echo '                </div>' >> index.html
+echo '                <div class="contact-links">' >> index.html
+echo '                    <div style="text-align: center; margin-bottom: 32px;">' >> index.html
+echo '                        <p style="font-size: 18px; color: var(--text-primary); margin-bottom: 16px;">📱 15214363830</p>' >> index.html
+echo '                        <p style="font-size: 18px; color: var(--text-primary); margin-bottom: 16px;">📍 深圳市</p>' >> index.html
+echo '                        <p style="font-size: 18px; color: var(--text-primary);">✉️ shawn2045@qq.com</p>' >> index.html
+echo '                    </div>' >> index.html
+echo '                    <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">' >> index.html
+echo '                        <a href="mailto:shawn2045@qq.com" class="contact-link">📧 邮箱联系</a>' >> index.html
+echo '                        <a href="https://linkedin.com/in/guzhi" target="_blank" class="contact-link">💼 LinkedIn</a>' >> index.html
+echo '                        <a href="https://github.com/guzhi" target="_blank" class="contact-link">🐙 GitHub</a>' >> index.html
+echo '                        <a href="https://apps.apple.com/developer/guzhi" target="_blank" class="contact-link">📱 App Store</a>' >> index.html
+echo '                    </div>' >> index.html
 echo '                </div>' >> index.html
 echo '            </div>' >> index.html
 echo '        </section>' >> index.html
